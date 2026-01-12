@@ -1,0 +1,21 @@
+{
+  "name": "function-process-payment",
+  "version": "1.0.0",
+  "description": "Azure Function para procesar pagos y entregar contenido - Bartolo Profe App",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["azure", "function", "serverless", "payment"],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "nodemailer": "^6.9.8",
+    "googleapis": "^131.0.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^4.0.0"
+  }
+}

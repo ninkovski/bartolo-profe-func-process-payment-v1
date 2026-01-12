@@ -1,0 +1,49 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - develop    # Auto-deploy to dev
+      - staging    # Auto-deploy to staging
+      - main       # Auto-deploy to production
+
+jobs:
+
+  deploy-dev:
+    if: github.ref == 'refs/heads/develop'
+    uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main  # ⚠️ CAMBIAR: ninkovski por tu organización
+    with:
+      function-app-name: 'mi-function-dev'              # Nombre de tu Azure Function en dev
+      resource-group: 'mi-rg-dev'                       # Resource Group de dev
+      package-path: './mi-funcion'                      # Ruta a tu carpeta de función
+      environment: 'dev'
+      node-version: '18.x'                              # Cambia si usas otra versión
+      run-tests: true
+      enable-notifications: true
+      create-release-on-success: true
+
+  deploy-staging:
+    if: github.ref == 'refs/heads/staging'
+    uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main  # ⚠️ CAMBIAR: ninkovski por tu organización
+    with:
+      function-app-name: 'mi-function-staging'
+      resource-group: 'mi-rg-staging'
+      package-path: './mi-funcion'
+      environment: 'staging'
+      node-version: '18.x'
+      run-tests: true
+      enable-notifications: true
+      slot-name: 'staging'
+      create-release-on-success: true
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main  # ⚠️ CAMBIAR: ninkovski por tu organización
+    with:
+      function-app-name: 'mi-function-prod'
+      resource-group: 'mi-rg-prod'
+      package-path: './mi-funcion'
+      environment: 'prod'
+      node-version: '18.x'
+      run-tests: true
+      enable-notifications: true
+      create-release-on-success: true   

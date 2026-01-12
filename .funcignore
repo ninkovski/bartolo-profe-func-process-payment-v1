@@ -1,0 +1,8 @@
+.git*
+.vscode
+.github
+local.settings.json
+test
+node_modules/.bin
+*.md
+.DS_Store
