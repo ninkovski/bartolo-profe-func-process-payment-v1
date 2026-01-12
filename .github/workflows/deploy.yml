@@ -7,7 +7,6 @@ on:
       - main       # Auto-deploy to production
 
 jobs:
-
   deploy-dev:
     if: github.ref == 'refs/heads/develop'
     uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main  # ⚠️ CAMBIAR: ninkovski por tu organización
