@@ -19,5 +19,6 @@ jobs:
       run-tests: false
       enable-notifications: false
       create-release-on-success: false
+    secrets: inherit
 
  
