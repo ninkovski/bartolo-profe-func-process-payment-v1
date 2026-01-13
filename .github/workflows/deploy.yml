@@ -9,16 +9,15 @@ on:
 jobs:
   deploy-dev:
     if: github.ref == 'refs/heads/develop'
-    uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main  # ⚠️ CAMBIAR: ninkovski por tu organización
+    uses: ninkovski/azure-workflow-actions-v1/.github/workflows/deploy-function.yml@main
     with:
-      function-app-name: 'func-bartolo-profe-app-process-payment-dev'              # Nombre de tu Azure Function en dev
-      resource-group: 'bartolo-profe-rg'                       # Resource Group de dev
-      package-path: '.'                                 # Raíz del repositorio (donde está package.json)
+      function-app-name: 'func-bartolo-profe-app-process-payment-dev'              
+      resource-group: 'bartolo-profe-rg'                        
+      package-path: '.'                                  
       environment: 'dev'
-      node-version: '18.x'                              # Cambia si usas otra versión
-      run-tests: false
-      enable-notifications: false
-      create-release-on-success: false
-    secrets: inherit
-
+      node-version: '18.x'                               
+      run-tests: false          
+      enable-notifications: false   
+      create-release-on-success: false  
+    secrets: inherit    
  
